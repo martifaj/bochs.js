@@ -1,0 +1,9 @@
+megs: 64
+romimage: file=$BXSHARE/BIOS-bochs-latest
+vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+ata0-master: type=disk, path=file.img
+cpu: model=atom_n270
+com1: enabled=1, mode=file, dev=serial.out
+#com1: enabled=1, mode=term, dev=/dev/stdout
+#ata0-slave: type=cdrom, path=file.iso, status=inserted
+boot: disk

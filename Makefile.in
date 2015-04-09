@@ -44,7 +44,7 @@ MAN_PAGE_1_LIST=bochs bximage bxcommit bochs-dlx
 MAN_PAGE_5_LIST=bochsrc
 INSTALL_LIST_SHARE=bios/BIOS-bochs-* bios/VGABIOS* @INSTALL_LIST_FOR_PLATFORM@
 INSTALL_LIST_DOC=CHANGES COPYING LICENSE README TODO
-INSTALL_LIST_BIN=bochs@EXE@ bximage@EXE@ bxcommit@EXE@
+INSTALL_LIST_BIN=bochs.js bximage@EXE@ bxcommit@EXE@
 INSTALL_LIST_BIN_OPTIONAL=bochsdbg@EXE@
 INSTALL_LIST_WIN32=$(INSTALL_LIST_SHARE) $(INSTALL_LIST_DOC) $(INSTALL_LIST_BIN) $(INSTALL_LIST_BIN_OPTIONAL) niclist@EXE@
 INSTALL_LIST_MACOSX=$(INSTALL_LIST_SHARE) $(INSTALL_LIST_DOC) bochs.scpt
@@ -168,11 +168,11 @@ BX_INCLUDES = bochs.h config.h osdep.h
 	$(CC) @DASH@c $(BX_INCDIRS) $(CFLAGS) $(FPU_FLAGS) $< @OFP@$@
 
 
-all: @PRIMARY_TARGET@ @PLUGIN_TARGET@ bximage@EXE@ bxcommit@EXE@ @BUILD_DOCBOOK_VAR@
+all: bochs.bc @PLUGIN_TARGET@ bximage@EXE@ bxcommit@EXE@ @BUILD_DOCBOOK_VAR@
 
 @EXTERNAL_DEPENDENCY@
 
-bochs@EXE@: @IODEV_LIB_VAR@ @DISPLAY_LIB_VAR@ @HDIMAGE_LIB_VAR@ @USB_LIB_VAR@ @NETWORK_LIB_VAR@ @SOUND_LIB_VAR@ \
+bochs.bc: @IODEV_LIB_VAR@ @DISPLAY_LIB_VAR@ @HDIMAGE_LIB_VAR@ @USB_LIB_VAR@ @NETWORK_LIB_VAR@ @SOUND_LIB_VAR@ \
 		@DEBUGGER_VAR@ cpu/libcpu.a cpu/cpudb/libcpudb.a memory/libmemory.a \
 		gui/libgui.a @DISASM_VAR@ @INSTRUMENT_VAR@ $(BX_OBJS) \
 		$(SIMX86_OBJS) @FPU_VAR@ @GDBSTUB_VAR@ @PLUGIN_VAR@
@@ -188,6 +188,7 @@ bochs@EXE@: @IODEV_LIB_VAR@ @DISPLAY_LIB_VAR@ @HDIMAGE_LIB_VAR@ @USB_LIB_VAR@ @N
 		$(READLINE_LIB) \
 		$(EXTRA_LINK_OPTS) \
 		$(LIBS)
+	$(CXX) bochs.bc -O3 -s EXPORTED_FUNCTIONS="['_kbdjs_keydown', '_kbdjs_keyup', '_cpu_loop_js','_mousejs_motion','_main']" -o bochs.js --js-library js/timer.js  --js-library js/uart.js  --js-library js/vga.js  --js-library js/event_dispatcher.js  --preload-file data@/
 
 # Special make target for cygwin/mingw using dlltool instead of
 # libtool.  This creates a .DEF file, and exports file, an import library,

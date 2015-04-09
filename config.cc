@@ -653,9 +653,6 @@ void bx_init_options()
   bx_list_c *rom = new bx_list_c(stdmem, "rom", "BIOS ROM options");
   bx_list_c *vgarom = new bx_list_c(stdmem, "vgarom", "VGABIOS ROM options");
 
-  fprintf(stderr, "BX_PHY_ADDRESS_WIDTH: %d\n", BX_PHY_ADDRESS_WIDTH);
-  fprintf(stderr, "SIZE_OF_Bit64u: %d\n", sizeof(Bit64u));
-  fprintf(stderr, "size: %d\n", ((Bit64u)(1) << BX_PHY_ADDRESS_WIDTH) / (1024*1024));
   // memory options (ram & rom)
   bx_param_num_c *ramsize = new bx_param_num_c(ram,
       "size",

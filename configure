@@ -20431,7 +20431,7 @@ $as_echo "$ac_cv_sizeof_unsigned_char" >&6; }
 
 
 cat >>confdefs.h <<_ACEOF
-#define SIZEOF_UNSIGNED_CHAR $ac_cv_sizeof_unsigned_char
+#define SIZEOF_UNSIGNED_CHAR 1
 _ACEOF
 
 
@@ -20464,7 +20464,7 @@ $as_echo "$ac_cv_sizeof_unsigned_short" >&6; }
 
 
 cat >>confdefs.h <<_ACEOF
-#define SIZEOF_UNSIGNED_SHORT $ac_cv_sizeof_unsigned_short
+#define SIZEOF_UNSIGNED_SHORT 2
 _ACEOF
 
 
@@ -20497,7 +20497,7 @@ $as_echo "$ac_cv_sizeof_unsigned_int" >&6; }
 
 
 cat >>confdefs.h <<_ACEOF
-#define SIZEOF_UNSIGNED_INT $ac_cv_sizeof_unsigned_int
+#define SIZEOF_UNSIGNED_INT 4
 _ACEOF
 
 
@@ -20530,7 +20530,7 @@ $as_echo "$ac_cv_sizeof_unsigned_long" >&6; }
 
 
 cat >>confdefs.h <<_ACEOF
-#define SIZEOF_UNSIGNED_LONG $ac_cv_sizeof_unsigned_long
+#define SIZEOF_UNSIGNED_LONG 4
 _ACEOF
 
 
@@ -20563,7 +20563,7 @@ $as_echo "$ac_cv_sizeof_unsigned_long_long" >&6; }
 
 
 cat >>confdefs.h <<_ACEOF
-#define SIZEOF_UNSIGNED_LONG_LONG $ac_cv_sizeof_unsigned_long_long
+#define SIZEOF_UNSIGNED_LONG_LONG 8
 _ACEOF
 
 
@@ -20596,7 +20596,7 @@ $as_echo "$ac_cv_sizeof_int_p" >&6; }
 
 
 cat >>confdefs.h <<_ACEOF
-#define SIZEOF_INT_P $ac_cv_sizeof_int_p
+#define SIZEOF_INT_P 4
 _ACEOF
 
 
