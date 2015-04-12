@@ -188,7 +188,7 @@ bochs.bc: @IODEV_LIB_VAR@ @DISPLAY_LIB_VAR@ @HDIMAGE_LIB_VAR@ @USB_LIB_VAR@ @NET
 		$(READLINE_LIB) \
 		$(EXTRA_LINK_OPTS) \
 		$(LIBS)
-	$(CXX) bochs.bc -O3 -s EXPORTED_FUNCTIONS="['_kbdjs_keydown', '_kbdjs_keyup', '_cpu_loop_js','_mousejs_motion','_main']" -o bochs.js --js-library js/timer.js  --js-library js/uart.js  --js-library js/vga.js  --js-library js/event_dispatcher.js  --preload-file data@/
+	$(CXX) bochs.bc -O3 -s EXPORTED_FUNCTIONS="['_kbdjs_keydown', '_kbdjs_keyup', '_cpu_loop_js','_mousejs_motion','_main']" -o bochs.js --js-library js/timer.js  --js-library js/uart.js  --js-library js/vga.js  --js-library js/event_dispatcher.js  --embed-file data@/
 
 # Special make target for cygwin/mingw using dlltool instead of
 # libtool.  This creates a .DEF file, and exports file, an import library,
