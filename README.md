@@ -5,7 +5,7 @@ A demo of this project can be found in http://www.jaumemarti.org/bochs.js.html
 ## Building
 To build the project you need to have Emscripten installed on your system and accessible from your PATH.
 The following command will generate all the files required to build the project using Emscripten:
-``{r, engine='sh', configure}
+```{r, engine='sh', configure}
 emconfigure ./configure
 ```
 The directory `data` in the root of the project contains the bochs configuration file, bios and the image files for the hard drives, cdroms etc.
